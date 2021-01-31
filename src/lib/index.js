@@ -6,7 +6,18 @@ const CoinGeckoClient = new CoinGecko();
 
 //3. Make calls
 export const ping = async () => {
-  let data = await CoinGeckoClient.coins.all();
-  console.log(data);
+  let params = {
+    ids: ["bitcoin", "xrp"]
+  };
+  let data = await CoinGeckoClient.coins.all({ params });
+  //console.log(data);
   return formatData(data.data);
 };
+
+export const getById = async (id) => {
+  let data = await CoinGeckoClient.coins.fetch(id, {});
+  console.log(data);
+  return data;
+  //return formatData(data.data);
+};
+//

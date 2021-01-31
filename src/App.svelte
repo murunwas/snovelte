@@ -1,11 +1,16 @@
 <script>
-  import { ping } from "./lib";
+  import { ping, getById } from "./lib";
   export let data = [];
 
   ping().then(_data => {
-    console.log(_data);
     data = _data;
   });
+
+  let methods = {
+    async get(id) {
+      const rsp = await getById(id);
+    }
+  };
   let headers = ["Name", "imige", "Value"];
 </script>
 <style global>
@@ -23,7 +28,9 @@
       </tr>
     </thead>
 {#each data as d}
-<tr class="border-dashed border-b border-gray-200 hover:bg-gray-100 cursor-pointer">
+<tr 
+on:click={()=>methods.get(d.id)}
+class="border-dashed border-b border-gray-200 hover:bg-gray-100 cursor-pointer">
 <td>{d.name} <small>{d.symbol}</small></td>
 <td><img src={d.image.thumb} alt={d.name}/></td>
 <td>

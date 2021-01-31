@@ -1,3 +1,5 @@
+export function formatCoin(params) {}
+
 export function formatData(data = []) {
   return data.map((d) => {
     const { id, symbol, name, image, market_data } = d;
