@@ -12,6 +12,7 @@
     "build": "snowpack build"
   },
   "dependencies": {
+    "coingecko-api": "1.0.10",
     "svelte": "^3.32.1",
     "svelte-loader": "^3.0.0",
     "svelte-preprocess": "^4.6.5",
